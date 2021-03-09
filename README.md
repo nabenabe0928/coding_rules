@@ -177,17 +177,24 @@ Create the file `~/.gitmessage` and paste the template below:
 #   * Can use multiple lines with "-" or "*" for bullet points in body
 # --------------------
 ```
+Note that `#` is comment out, so we do not have to delete everything.
 
 To tell Git to use the template file (globally, not just in the current repo), 
 use the following command:
 ```
-git config --global commit.template ~/.gitmessage
+$ git config --global commit.template ~/.gitmessage
+```
+
+To customize the editor for commit message, use the following command:
+```
+$ git config --global core.editor <editor name>
 ```
 
 [References]
 1. [Using Git commit message templates to write better commit messages](https://gist.github.com/lisawolderiksen/a7b99d94c92c6671181611be1641c733)
 2. [How to write a git commit message](https://chris.beams.io/posts/git-commit/)
 3. [One example of git commit message template ](https://gist.github.com/zakkak/7e06725ebd1336bfebebe254de3de825)
+4. [8.1 Customizing Git](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration)
 4. [A practical guide to small and easy-to-review pull requests](https://sourcediving.com/a-practical-guide-to-small-and-easy-to-review-pull-requests-a7f04a01d5d5)
 
 # 3. Git useful command
