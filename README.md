@@ -254,7 +254,7 @@ The example templates are available in the references.
 4. [A practical guide to small and easy-to-review pull requests](https://sourcediving.com/a-practical-guide-to-small-and-easy-to-review-pull-requests-a7f04a01d5d5)
 
 # 3. Git useful commands
-1. cancel the stating of the file
+1. cancel the staging of the file
 ```
 $ git reset HEAD <file name>
 ```
