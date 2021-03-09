@@ -25,9 +25,9 @@ $ git checkout -b <new branch name>
 If the target branch is updated, update this branch.
 ```
 # Forked repostiory
-git pull --rebase origin <target branch name>
+$ git pull --rebase origin <target branch name>
 # Otherwise
-git pull --rebase upstream <target branch name>
+$ git pull --rebase upstream <target branch name>
 ```
 
 If the target branch is merged, make the base branch `<remote branch name>`, otherwise, keep the base branch the target branch.
@@ -102,14 +102,14 @@ $ git pull --rebase upstream <remote branch name>
 $ git pull --rebase origin <remote branch name>
 
 # When there are conflicts, do the followings after editing
-git add <conflicted file>
-git commit -m "Resolved merge conflict by incorporating incoming changes"
+$ git add <conflicted file>
+$ git commit -m "Resolved merge conflict by incorporating incoming changes"
 ```
 
 ## 1-10. Remove the branch if you do not need it
 ```
-git branch --delete <local branch name>
-git push --delete origin <deleted branch name>
+$ git branch --delete <local branch name>
+$ git push --delete origin <deleted branch name>
 ```
 
 # 2. Github conventions
@@ -255,24 +255,24 @@ The example templates are available in the references.
 # 3. Git useful commands
 1. cancel the stating of the file
 ```
-git reset HEAD <file name>
+$ git reset HEAD <file name>
 ```
 
 2. Check the commit history (option: -p, --stat, --graph, --oneline, -<number>)
 ```
-git log
+$ git log
 or
-git log origin/<branch name>
+$ git log origin/<branch name>
 ```
 
 3. Check the differences between branches, files and so on (option: --cached, --name-only, --stat, --word-diff)
 ```
-git diff <target1> <target2>
+$ git diff <target1> <target2>
 ```
 
 4. Check who changed the file (option: -e, -f, -n)
 ```
-4. git blame <file name>
+$ git blame <file name>
 ```
 Useful when you try to contact the person for the discussion or the intention behind the code
 
@@ -310,5 +310,5 @@ $ git show-branch | grep '*' | grep -v "$(git rev-parse --abbrev-ref HEAD)" | he
 8. Find files that have a specific sentence
 ```
 # We can use wild card "*" for file name 
-find -name “<file name>” -exec grep "<target sentence>" {} \; -print
+$ find -name “<file name>” -exec grep "<target sentence>" {} \; -print
 ```
