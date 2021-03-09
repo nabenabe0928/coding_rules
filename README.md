@@ -8,7 +8,7 @@ Do not make changes longer and avoid increasing
 the number of changed files as much as possible.
 We would rather recommend to create a new branch.
 
-[Reference]
+[References]
 1. [How to Split Pull Requests – Good Practices, Methods and Git Strategies / Git strategy 3. Sequential PRs of “milestone” commits](https://www.thedroidsonroids.com/blog/splitting-pull-request#git-strategy-3)
 1. [When should I create a new branch? Stack overflow](https://stackoverflow.com/questions/15633409/when-should-i-create-a-new-branch)
 
@@ -131,8 +131,9 @@ There are four rules for the naming.
 |work type|description|
 |-|-|
 |hotfix|branch from `stable` and urgent work|
-|feature|branch from `main` and not urgent work|
-|bug|branch from `main` and urgent work such as bugs|
+|feat|branch from `main` and work on new feature|
+|fix|branch from `main` and fix some issues|
+|refactor|branch from `main` and work on refactoring|
 
 [References]
 1. [Github branching standards and conventions](https://gist.github.com/digitaljhelms/4287848)
