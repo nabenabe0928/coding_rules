@@ -1,9 +1,16 @@
 # 1. Workflow
+
+You can also check [General guideline](https://github.com/elsewhencode/project-guidelines).
+
 ## 1-1. Edit files
 Choose appropriate files for the branch and edit them.
 Do not make changes longer and avoid increasing 
 the number of changed files as much as possible.
 We would rather recommend to create a new branch.
+
+[Reference]
+1. [How to Split Pull Requests – Good Practices, Methods and Git Strategies / Git strategy 3. Sequential PRs of “milestone” commits](https://www.thedroidsonroids.com/blog/splitting-pull-request#git-strategy-3)
+1. [When should I create a new branch? Stack overflow](https://stackoverflow.com/questions/15633409/when-should-i-create-a-new-branch)
 
 ### 1-1-A. When we would like to work on new features in the branch that has not been merged yet
 
@@ -41,8 +48,12 @@ $ git add <file>
 This commit message should follow the project rule.
 
 ```
+# If the changes are small
 $ git commit -m “<commit message>”
+# Otherwise, add the body
+$ git commit
 ```
+Note that commit message with the body works when you setup the git commit template described in 2.2.
 
 ## 1-5. Check the update on the remote repository and apply the changes to the local repository
 Before pushing, fetch the latest version. 
@@ -77,6 +88,7 @@ $ git push origin <local branch name>
 
 ## 1-7. Send a pull request
 Send a pull request from the github website.
+When sending a PR, follow the rules specified in 2-3-A.
 Note: Push the green button saying **New pull request**. 
 
 ## 1-8. Wait for reviews and fix the issues mentioned by the reviewers
@@ -108,7 +120,7 @@ First, the main branches for each repository should have `main` and `stable` bra
 Branch name should look like the following:
 ```
 # <Issue Tracker ID>-<work type>-<work description>
-123-hotfix-add-foo-function
+123-feature-add-foo-function
 ```
 There are four rules for the naming.
 1. The name always starts from the issue ID in the Github webpage
@@ -127,6 +139,10 @@ There are four rules for the naming.
 2. [Git branch naming conventions](https://deepsource.io/blog/git-branch-naming-conventions/)
 
 ## 2-2. Commit messages
+The details are mentioned in the reference below.
+Basically, commit message should specify why you make the changes,
+because people will know what you changed from `git diff` and cannot know why from the git commands.
+There are seven rules to follow:
 1. Start with a tag
 2. Separate subject from body with a blank line
 3. Limit the subject line to 50 characters
@@ -136,7 +152,7 @@ There are four rules for the naming.
 7. Make new lines every 72 characters in the body
 8. Use the body to explain what and why vs how
 
-Create the file `~/.gitmessage` and paste the template below:
+Create the file `~/.github/.gitmessage` and paste the template below:
 ```
 # [<tag>] (If applied, this commit will...) <subject> (Max 72 char)
 # |<----   Preferably using up to 50 chars   --->|<------------------->|
@@ -182,10 +198,10 @@ Note that `#` is comment out, so we do not have to delete everything.
 To tell Git to use the template file (globally, not just in the current repo), 
 use the following command:
 ```
-$ git config --global commit.template ~/.gitmessage
+$ git config --global commit.template ~/.github/.gitmessage
 ```
 
-To customize the editor for commit message, use the following command:
+To customize the editor (e.g. emacs, vim) for commit message, use the following command:
 ```
 $ git config --global core.editor <editor name>
 ```
@@ -195,9 +211,48 @@ $ git config --global core.editor <editor name>
 2. [How to write a git commit message](https://chris.beams.io/posts/git-commit/)
 3. [One example of git commit message template ](https://gist.github.com/zakkak/7e06725ebd1336bfebebe254de3de825)
 4. [8.1 Customizing Git](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration)
+
+## 2-3. Pull request and issue
+### 2-3-A. Rules
+These rules are helpful for both contributors and reviewers,
+because they make the PR procedure smoother and quicker.
+We recommend to look at your codes once more to check if they are already easier to review.
+1. Make it small (split PR within small number of files)
+2. Do only one thing
+3. Add documentation string ([Google python docstrings](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html)) and code explanations
+4. Add tests
+5. Push as soon as possible and do not keep changes only in your local repository
+6. Separate refactoring from features
+
+Note that we prefer code explanations in the actual codes rather than PR comments,
+because they should not be used only for the temporal explanations.
+However, it is also promoted to put comments at Github webpage for the PR to dispel reviewers' doubt beforehand.
+
+For the optional strategies, it is recommended to follow:
+1. Make PRs for each small change when you would like to change small issues across many files such as changing variable names
+2. Units first, integration later (new PRs for each unit)
+
+[References]
+1. [10 tips for better Pull Requests](https://blog.ploeh.dk/2015/01/15/10-tips-for-better-pull-requests/)
+2. [The (written) unwritten guide to pull requests](https://www.atlassian.com/blog/git/written-unwritten-guide-pull-requests)
+3. [PULL REQUEST GUIDELINES](https://opensource.creativecommons.org/contributing-code/pr-guidelines/)
+4. [Pull Request Etiquette - A set of simple rules for your code review](https://erikzaadi.com/2019/09/29/pull-request-etiquette-a-set-of-simple-rules-for-your-code-review/)
+5. [The Art of Small Pull Requests](https://essenceofcode.com/2019/10/29/the-art-of-small-pull-requests/)
+6. [How to Split Pull Requests – Good Practices, Methods and Git Strategies](https://www.thedroidsonroids.com/blog/splitting-pull-request)
+
+
+### 2-3-B. Message
+To recall what to write in PRs and issues, put `pull_request_template.md`
+and `issue_template.md` in the home directory.
+The example templates are available in the references.
+
+[References]
+1. [A github pull request template for your projects](https://embeddedartistry.com/blog/2017/08/04/a-github-pull-request-template-for-your-projects/)
+2. [Github templates: The smarter way to formalize pull requests among development teams](https://betterprogramming.pub/github-templates-the-smarter-way-to-formalize-pull-requests-among-development-teams-89f8d6a204f)
+3. [10 examples of issue templates](https://github.com/stevemao/github-issue-templates)
 4. [A practical guide to small and easy-to-review pull requests](https://sourcediving.com/a-practical-guide-to-small-and-easy-to-review-pull-requests-a7f04a01d5d5)
 
-# 3. Git useful command
+# 3. Git useful commands
 1. cancel the stating of the file
 ```
 git reset HEAD <file name>
