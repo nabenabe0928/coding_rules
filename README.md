@@ -2,6 +2,15 @@
 
 You can also check [General guideline](https://github.com/elsewhencode/project-guidelines).
 
+## 1-0. Register upstream
+When cloning a new project from not your repository,
+you need to define the reference name for the remote repository.
+Conventionally, we name it `upstream`.
+
+```
+git remote add upstream <URL>
+```
+
 ## 1-1. Edit files
 Choose appropriate files for the branch and edit them.
 Do not make changes longer and avoid increasing 
@@ -70,6 +79,9 @@ $ git pull --rebase origin <remote branch name>
 Fix the files properly. 
 These changes lead to the changes of others’ commits, 
 so it would be better to discuss the changes in advance.
+Note that `incoming change` is the change that you made
+and `current change` is the change that
+you get from the remote repository.
 
 After the changes, add files one by one.
 ```
@@ -92,7 +104,9 @@ When sending a PR, follow the rules specified in 2-3-A.
 Note: Push the green button saying **New pull request**. 
 
 ## 1-8. Wait for reviews and fix the issues mentioned by the reviewers
-Repeat the steps 3. ~ 7. until the PR is merged to the remote repository.
+Repeat the steps 1.3. ~ 1.7. until the PR is merged to the remote repository.
+When we merge PR, we would use `Squash and merge`
+instead of `Create a merge commit` from Github webpage.
 
 ## 1-9. Update the local environment
 ```
