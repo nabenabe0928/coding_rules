@@ -38,6 +38,8 @@ $ git pull --rebase origin <target branch name>
 # Otherwise
 $ git pull --rebase upstream <target branch name>
 ```
+Note that since it can overwrite your local change,
+do not forget taking a backup for your changes.
 
 If the target branch is merged, make the base branch `<remote branch name>`, otherwise, keep the base branch the target branch.
 
@@ -74,6 +76,8 @@ $ git pull --rebase upstream <remote branch name>
 # Otherwise 
 $ git pull --rebase origin <remote branch name>
 ```
+Note that since it can overwrite your local change,
+do not forget taking a backup for your changes.
 
 ### 1-5-A. If there are conflicts
 Fix the files properly. 
