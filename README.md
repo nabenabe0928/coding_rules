@@ -9,13 +9,21 @@ you need to define the reference name for the remote repository.
 Conventionally, we name it `upstream`.
 
 ```
-git remote add upstream <URL of the upstream repository>
+$ git remote add upstream <URL of the upstream repository>
 ```
 
 Additionally, you have to add your repository as the origin.
 
 ```
-git remote add upstream <URL of your repository>
+$ git remote add origin <URL of your repository>
+```
+
+If you made a mistake when you add `origin`,
+you can re-do it as follows:
+
+```
+$ git remote rm origin
+$ git remote add origin <URL of your repository>
 ```
 
 ## 1-1. Edit files
