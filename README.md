@@ -5,10 +5,17 @@ You can also check [General guideline](https://github.com/elsewhencode/project-g
 ## 1-0. Register upstream
 When cloning a new project from not your repository,
 you need to define the reference name for the remote repository.
+(Plus, do not forget push `Fork` button in the github GUI.)
 Conventionally, we name it `upstream`.
 
 ```
-git remote add upstream <URL>
+git remote add upstream <URL of the upstream repository>
+```
+
+Additionally, you have to add your repository as the origin.
+
+```
+git remote add upstream <URL of your repository>
 ```
 
 ## 1-1. Edit files
