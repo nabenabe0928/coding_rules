@@ -120,7 +120,21 @@ $ git push origin <local branch name>
 ## 1-7. Send a pull request
 Send a pull request from the github website.
 When sending a PR, follow the rules specified in 2-3-A.
-Note: Push the green button saying **New pull request**. 
+Note: Push the green button saying **New pull request**.
+
+### 1-7-A. When you get a lot of old commits in PR
+We often encounter the situation where we get a lot of old commits in PR.
+In this case, we have to apply the followings:
+```
+$ git checkout <local branch name>
+
+# Forked repository
+$ git pull --rebase upstream <remote branch name>
+# Otherwise
+$ git pull --rebase origin <remote branch name>
+
+$ git push origin <local branch name>
+``` 
 
 ## 1-8. Wait for reviews and fix the issues mentioned by the reviewers
 Repeat the steps 1.3. ~ 1.7. until the PR is merged to the remote repository.
