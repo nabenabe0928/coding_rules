@@ -153,6 +153,23 @@ $ git add <conflicted file>
 $ git commit -m "Resolved merge conflict by incorporating incoming changes"
 ```
 
+When you would like to rebase after the `Squash and merge`,
+you may need to handle `rebase --continue` many times
+and it is time-consuming.
+One way to avoid this is the following:
+```
+$ git checkout <current branch name>
+# Take the log for the post-processing
+$ git log
+
+$ git checkout <branch to rebase>
+$ git branch -m <current branch name> <another name>
+$ git branch -D <another name>
+$ git checkout -b <current branch name>
+
+$ git cherry-pick <commit hash to put on the top>
+```
+
 ## 1-10. Remove the branch if you do not need it
 ```
 $ git branch --delete <local branch name>
