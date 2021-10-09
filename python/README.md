@@ -4,6 +4,14 @@ The main goals of the coding rules are to:
 2. decrease the number of potential bugs
 3. increase the interpretability of the codes
 
+The format should stick to the following conventions:
+1. [Coding Style](https://google.github.io/styleguide/pyguide.html)
+2. [Docstrings](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html)
+3. [Variable naming rules](https://www.python.org/dev/peps/pep-0008/)
+4. [Type Hints](https://www.python.org/dev/peps/pep-0484/)
+
+On top of those rules, I will list some rules.
+
 # Rule 1. Use autopep8, flake8, mypy, google style docstring
 [autopep8](https://www.python.org/dev/peps/pep-0008/)
 and [flake8](https://flake8.pycqa.org/en/latest/)

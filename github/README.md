@@ -5,19 +5,17 @@ You can also check [General guideline](https://github.com/elsewhencode/project-g
 ## 1-0. Register upstream
 When cloning a new project from not your repository,
 you need to define the reference name for the remote repository.
-(Plus, do not forget push `Fork` button in the github GUI.)
+(Plus, do not forget to push `Fork` button in the GitHub GUI.)
 Conventionally, we name it `upstream`.
 
 ```
 $ git remote add upstream <URL of the upstream repository>
 ```
-
 Additionally, you have to add your repository as the origin.
 
 ```
 $ git remote add origin <URL of your repository>
 ```
-
 If you made a mistake when you add `origin`,
 you can re-do it as follows:
 
@@ -53,8 +51,8 @@ $ git pull --rebase origin <target branch name>
 # Otherwise
 $ git pull --rebase upstream <target branch name>
 ```
-Note that since it can overwrite your local change,
-do not forget taking a backup for your changes.
+**NOTE**: Since it can overwrite your local change,
+do not forget to take a backup for your changes.
 
 If the target branch is merged, make the base branch `<remote branch name>`, otherwise, keep the base branch the target branch.
 
@@ -91,8 +89,8 @@ $ git pull --rebase upstream <remote branch name>
 # Otherwise 
 $ git pull --rebase origin <remote branch name>
 ```
-Note that since it can overwrite your local change,
-do not forget taking a backup for your changes.
+**NOTE**: Since it can overwrite your local change,
+do not forget to take a backup for your changes.
 
 ### 1-5-A. If there are conflicts
 Fix the files properly. 
@@ -118,13 +116,13 @@ $ git push origin <local branch name>
 ```
 
 ## 1-7. Send a pull request
-Send a pull request from the github website.
+Send a pull request from the GitHub website.
 When sending a PR, follow the rules specified in 2-3-A.
-Note: Push the green button saying **New pull request**.
+**NOTE**: Push the green button saying **New pull request**.
 
 ### 1-7-A. When you get a lot of old commits in PR
 We often encounter the situation where we get a lot of old commits in PR.
-In this case, we have to apply the followings:
+In this case, we have to apply the following:
 ```
 $ git checkout <local branch name>
 
@@ -137,9 +135,9 @@ $ git push origin <local branch name>
 ``` 
 
 ## 1-8. Wait for reviews and fix the issues mentioned by the reviewers
-Repeat the steps 1.3. ~ 1.7. until the PR is merged to the remote repository.
+Repeat step 1.3. ~ 1.7. until the PR is merged to the remote repository.
 When we merge PR, we would use `Squash and merge`
-instead of `Create a merge commit` from Github webpage.
+instead of `Create a merge commit` from the Github webpage.
 
 ## 1-9. Update the local environment
 ```
@@ -148,9 +146,9 @@ $ git pull --rebase upstream <remote branch name>
 # Otherwise
 $ git pull --rebase origin <remote branch name>
 
-# When there are conflicts, do the followings after editing
+# When there are conflicts, do the following after editing
 $ git add <conflicted file>
-$ git commit -m "Resolved merge conflict by incorporating incoming changes"
+$ git commit -m "[fix] Resolve merge conflict by incorporating incoming changes"
 ```
 
 When you would like to rebase after the `Squash and merge`,
@@ -181,12 +179,12 @@ $ git push --delete origin <deleted branch name>
 First, the main branches for each repository should have `main` and `stable` branches.
 `main` branch is a working branch and `stable` branch is a branch that provides stable functionalities as intended.
 
-Branch name should look like the following:
+The branch name should look like the following:
 ```
 # <Issue Tracker ID>-<work type>-<work description>
 123-feature-add-foo-function
 ```
-There are four rules for the naming.
+There are four rules for naming.
 1. The name always starts from the issue ID in the Github webpage
 2. Work type is listed in the table below
 3. Use a short and recognizable name
@@ -205,7 +203,7 @@ There are four rules for the naming.
 
 ## 2-2. Commit messages
 The details are mentioned in the reference below.
-Basically, commit message should specify why you make the changes,
+Basically, the commit message should specify why you make the changes
 because people will know what you changed from `git diff` and cannot know why from the git commands.
 There are seven rules to follow:
 1. Start with a tag
@@ -258,7 +256,7 @@ Create the file `~/.github/.gitmessage` and paste the template below:
 #   * Can use multiple lines with "-" or "*" for bullet points in body
 # --------------------
 ```
-Note that `#` is comment out, so we do not have to delete everything.
+Note that `#` is comment-out, so we do not have to delete everything.
 
 To tell Git to use the template file (globally, not just in the current repo), 
 use the following command:
@@ -282,7 +280,7 @@ $ git config --global core.editor <editor name>
 These rules are helpful for both contributors and reviewers,
 because they make the PR procedure smoother and quicker.
 We recommend to look at your codes once more to check if they are already easier to review.
-1. Make it small (split PR within small number of files)
+1. Make it small (split PR within a small number of files)
 2. Do only one thing
 3. Add documentation string ([Google python docstrings](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html)) and code explanations
 4. Add tests
@@ -290,8 +288,8 @@ We recommend to look at your codes once more to check if they are already easier
 6. Separate refactoring from features
 
 Note that we prefer code explanations in the actual codes rather than PR comments,
-because they should not be used only for the temporal explanations.
-However, it is also promoted to put comments at Github webpage for the PR to dispel reviewers' doubt beforehand.
+because they should not be used only for temporal explanations.
+However, it is also promoted to put comments on the Github webpage for the PR to dispel reviewers' doubt beforehand.
 
 For the optional strategies, it is recommended to follow:
 1. Make PRs for each small change when you would like to change small issues across many files such as changing variable names
@@ -312,7 +310,7 @@ and `issue_template.md` in the home directory.
 The example templates are available in the references.
 
 [References]
-1. [A github pull request template for your projects](https://embeddedartistry.com/blog/2017/08/04/a-github-pull-request-template-for-your-projects/)
+1. [A Github pull request template for your projects](https://embeddedartistry.com/blog/2017/08/04/a-github-pull-request-template-for-your-projects/)
 2. [Github templates: The smarter way to formalize pull requests among development teams](https://betterprogramming.pub/github-templates-the-smarter-way-to-formalize-pull-requests-among-development-teams-89f8d6a204f)
 3. [10 examples of issue templates](https://github.com/stevemao/github-issue-templates)
 4. [A practical guide to small and easy-to-review pull requests](https://sourcediving.com/a-practical-guide-to-small-and-easy-to-review-pull-requests-a7f04a01d5d5)
