@@ -138,6 +138,10 @@ $ git push origin <local branch name>
 Repeat step 1.3. ~ 1.7. until the PR is merged to the remote repository.
 When we merge PR, we would use `Squash and merge`
 instead of `Create a merge commit` from the Github webpage.
+If you are a reviewer, it is helpful to use the comparison feature in Github:
+```
+https://github.com/<Repository owner name>/<Repository name>/compare/<Commit hash 1>...<Commit hash 2>
+```
 
 ## 1-9. Update the local environment
 ```
