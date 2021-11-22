@@ -1,0 +1,291 @@
+\documentclass[dvipdfmx]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,bm,bbm}
+\usepackage{graphicx}
+\usepackage{ascmac}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{algorithm, algpseudocode}
+\usepackage{algpseudocode}
+\usepackage{tikz}
+\usepackage{ulem}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage[caption=false]{subfig}
+\usepackage{comment}
+\usepackage{listings}
+\usetikzlibrary{chains}
+\usetikzlibrary{calc}
+\usepackage{mathtools}
+\usepackage{amsmath,amsthm,tikz}
+\usepackage{lastpage}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable, skins, theorems}
+\newtheorem{theorem1}{Theorem}
+\newtheorem{theorem2}{Definition}
+\newtheorem{theorem3}{Assumption}
+\def\qed{\hfill $\Box$}
+
+% remove the end from algorithm
+\algtext*{EndFor}
+\algtext*{EndWhile}
+\algtext*{EndIf}
+\algtext*{EndProcedure}
+\algtext*{EndFunction}
+\newcommand{\Break}{\textbf{break}}
+\newcommand{\Continue}{\textbf{continue}}
+
+\setlength{\textwidth}{156mm}
+\setlength{\textheight}{220mm}
+\setlength{\oddsidemargin}{5mm}
+\setlength{\voffset}{-15mm}
+\setlength{\headsep}{10mm}
+\pagestyle{fancy}
+\rhead{\thepage/\pageref{LastPage}}
+\cfoot{ }
+
+\lhead[Math writing rules / Shuhei Watanabe]{Math writing rules / Shuhei Watanabe}
+
+\title{\vspace{-15mm} Math writing rules}
+\author{Shuhei Watanabe}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+\section{Introduction}
+\begin{proof}
+  This is a proof.
+\end{proof}
+
+Center-aligned equations
+\begin{gather}
+  f(x) = x^2 + 2x + 1 \\
+  g(x) = 2x + 1
+\end{gather}
+
+\&-aligned equations
+\begin{equation}
+\begin{aligned}
+  f(x) &= x^2 + 2x + 1 \\
+  g(x) &= 2x + 1
+\end{aligned}
+\end{equation}
+
+Mathematical abbreviations (xxx v.s. $\backslash$xxx)
+\begin{itemize}
+  \item $cos, det, dim, exp, inf, lim, log, min, max, sup$
+  \item $\cos, \det, \dim, \exp, \inf, \lim, \log, \min, \max, \sup$
+\end{itemize}
+
+Mathematical abbreviations ($\backslash$text\{xxx\}y v.s. $\backslash$xxx y)
+\begin{equation}
+  \begin{aligned}
+    \text{log} x, \text{lim}_{x \rightarrow \infty}x
+  \end{aligned}
+\end{equation}
+\begin{equation}
+  \begin{aligned}
+    \log x, \lim_{x \rightarrow \infty} x
+  \end{aligned}
+\end{equation}
+Alternative: $\backslash$text\{xxx\} $\tilde{}$ y
+
+Fraction in sentences or exponential
+\begin{itemize}
+  \item \textbf{Bad looking}: $\frac{1}{2}, 2^{\frac{1}{2}}$
+  \item \textbf{Better looking}: $1 / 2, 2^{1 / 2}$
+\end{itemize}
+
+Center dots v.s. bottom dots
+\begin{equation}
+\begin{aligned}
+  \text{Good}:~& x_1, x_2, \dots, x_n \\
+  \text{Bad}:~& x_1, x_2, \cdots, x_n
+\end{aligned}
+\end{equation}
+\begin{equation}
+  \begin{aligned}
+    \text{Good}:~& \sum_{i=1}^n x_i = x_1 + x_2 + \cdots x_n,
+    \prod_{i=1}^n x_i = x_1 x_2 \cdots x_n \\
+    \text{Bad}:~& \sum_{i=1}^n x_i = x_1 + x_2 + \dots x_n,
+    \prod_{i=1}^n x_i = x_1 x_2 \dots x_n \\
+  \end{aligned}
+  \end{equation}
+
+  \begin{theorem1}\leavevmode \par
+    This is a theorem about Eq.~(1).
+  \end{theorem1}
+  \begin{theorem1}\leavevmode \par
+    This is a theorem about Eq.~$\mathrm{(1)}$.
+  \end{theorem1}
+
+Transpose
+\begin{itemize}
+  \item $A^T$
+  \item $A^\top$
+\end{itemize}
+
+Vectors
+\begin{itemize}
+  \item $\boldsymbol{v}$
+  \item $v$
+\end{itemize}
+
+Brackets
+\begin{itemize}
+  \item normal: $(x)$
+  \item big: $\bigl(x\bigr)$
+  \item Big: $\Bigl(x\Bigr)$
+  \item bigg: $\biggl(x\biggr)$
+  \item Bigg: $\Biggl(x\Biggr)$
+\end{itemize}
+
+norm
+\begin{itemize}
+  \item $\|\boldsymbol{x}\|$
+  \item $||\boldsymbol{x}||$
+\end{itemize}
+
+empty set
+\begin{itemize}
+  \item $\phi$
+  \item $\emptyset$
+\end{itemize}
+
+underbrace with mathclap (mathtools)
+\begin{equation}
+\begin{aligned}
+  a + \underbrace{b}_{\text{long long long}} + c \\
+  a + \underbrace{b}_{\mathclap{\text{long long long}}} + c \\
+\end{aligned}
+\end{equation}
+
+Union and intersections
+\begin{equation}
+\begin{aligned}
+  \cup_i S_i, \cap_i S_i \\
+  \bigcup_i S_i, \bigcap_i S_i \\
+\end{aligned}
+\end{equation}
+
+For all, for some in sentences
+\begin{itemize}
+  \item we apply $f$ for all $i$
+  \item we apply $f, \forall i$ 
+\end{itemize}
+
+Mapping of sets and correspondence of elements
+\begin{equation}
+\begin{aligned}
+  \mathbb{R}^n &\rightarrow \mathbb{R} \\
+  \boldsymbol{x} &\mapsto f(\boldsymbol{x})
+\end{aligned}
+\end{equation}
+
+Definition
+\begin{equation}
+\begin{aligned}
+  f(x) &\coloneqq x^2 \\
+  f(x) &:= x^2 \\
+\end{aligned}
+\end{equation}
+
+\section{Mathematics}
+
+A specific value $a$ belongs to a set $A$
+\begin{equation}
+\begin{aligned}
+  a \in A
+\end{aligned}
+\end{equation}
+
+A subset $S$ of a set $A$
+\begin{equation}
+\begin{aligned}
+  S \subset A
+\end{aligned}
+\end{equation}
+
+A set
+\begin{equation}
+\begin{aligned}
+  \text{A set of positive integers}:&~ \mathbb{Z}_{+} = \{1, 2, \dots\} \\
+  \text{A set of $x$ s.t. $x > 0$}:&~ \mathbb{R}_{+} = \{x \mid x > 0 \} \\
+  \text{A set of $x = y^2$ s.t. $y \in \mathbb{R}$}:&~ \mathbb{R}_{\geq 0} = \{y^2 \mid y \in \mathbb{R} \}
+\end{aligned}
+\end{equation}
+
+A complement set $A^c$
+\begin{equation}
+\begin{aligned}
+  A \cap A^c = \emptyset
+\end{aligned}
+\end{equation}
+
+Cartesian product
+\begin{equation}
+\begin{aligned}
+  X \times Y \coloneqq \{(x, y)\mid x\in X, y \in Y\}
+\end{aligned}
+\end{equation}
+
+Booleans
+\begin{itemize}
+  \item $x^2$ is non negative for an arbitrary real number $x$: $\forall x \in \mathbb{R}, x^2 \geq 0$ 
+  \item There exist some real numbers $x$ such that $x$ is negative: $\exists x \in \mathbb{R}, x < 0$ 
+  \item For all positive $\epsilon$, there exist some numbers $x$ such that $|f(x)| < \epsilon$:
+  $\forall \epsilon > 0, \exists x, \text{ s.t. } |f(x)|<\epsilon$
+\end{itemize}
+
+Derivatives at a given point
+\begin{equation}
+\begin{aligned}
+  \biggl(\frac{dy}{dx}\biggr)_{x = a}
+\end{aligned}
+\end{equation}
+
+Norm
+\begin{equation}
+\begin{aligned}
+  \|\cdot\|&:~ X \rightarrow [0, \infty),
+  \boldsymbol{x} \mapsto \|\boldsymbol{x}\| \\
+  |\cdot|&:~ \mathbb{R} \rightarrow [0, \infty),
+  x \mapsto |x|
+\end{aligned}
+\end{equation}
+Use norm for vectors or 
+Norm  absolute value
+
+subscription, superscription (optima)
+Avoid superscription as much as possible.
+If use superscriptions, try to avoid confusion
+by non-iteric, a word or bracket
+Use mostly subscription
+
+pipe, semicolon
+pipe is for conditioning and
+semicolon is for fixed parameters.
+
+inner product
+\begin{equation}
+\begin{aligned}
+  \langle x, y \rangle
+\end{aligned}
+\end{equation}
+
+a sequence
+\begin{equation}
+\begin{aligned}
+  \{a_i\}_{i \in [0, N) \subset \mathbb{Z}}
+  = \{a_i\}_{i=0}^{N - 1}
+\end{aligned}
+\end{equation}
+
+hat, bar, tilde, direction by subscription
+
+
+\bibliographystyle{splncs04}
+\bibliography{ref}
+\end{document}
